@@ -1,0 +1,7 @@
+>>> Warning 216 "main.c" Line 288(1,2): Interrupts disabled during call to prevent re-entrancy:  (@DIVFF)
+>>> Warning 216 "main.c" Line 288(1,2): Interrupts disabled during call to prevent re-entrancy:  (@MULFF)
+>>> Warning 216 "main.c" Line 288(1,2): Interrupts disabled during call to prevent re-entrancy:  (@SITOF)
+>>> Warning 216 "main.c" Line 288(1,2): Interrupts disabled during call to prevent re-entrancy:  (@ADDFF)
+      Memory usage:   ROM=20%      RAM=5% - 6%
+      0 Errors,  4 Warnings.
+Build Successful.

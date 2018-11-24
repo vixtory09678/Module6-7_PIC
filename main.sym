@@ -1,0 +1,215 @@
+W0      @SCRATCH
+W0L     _RETURN_
+W0 -W1  @READ_ROM_MEMORY.P1
+W0 -W2  @DIVFF48.P2
+W0      @SITOF.P3
+W0 -W1  @FLT.P4
+W0 -W1  @DIV3232B.P5
+W0 -W1  @SFTOI.P6
+W0 -W3  @DIVFF64.P7
+W0 -W1  @MULS3232.P8
+W0 -W1  @MULFF.P9
+W0 -W1  @ADDFF.P10
+W0 -W3  @SI64TOF64.P11
+W0 -W1  @FTOSD.P12
+W0 -W3  @ADDFF64.P13
+W0 -W2  @F48TO64.P14
+W0      @PRINTFD16_9600_5725_5724.P15
+W0 -W3  @SI64TOF48.P16
+W0 -W2  @FLT48.P17
+W0 -W1  @SDTOF.P18
+W0      @delay_ms1.P19
+W0 -W2  @F48TOSI64.P20
+W0      @delay_us1.P21
+W0 -W3  @I64TOF48.P22
+W0 -W1  @DIVS3232A.P23
+W0 -W2  @ADDFF48.P24
+W0 -W3  @F64TO48.P25
+W0 -W3  @MULFF64.P26
+W0 -W1  @DIVFF.P27
+W0      @ITOF.P28
+W0 -W2  @MULFF48.P29
+W0 -W3  @F64TOI64.P30
+W0 -W3  @FLT64.P31
+W0 -W3  @F64TOSI64.P32
+W0 -W3  @I64TOF64.P33
+W1      @SCRATCH
+W1      @READ_PACKED_MEMORY.P1
+W1      @WRITE_PACKED_MEMORY.P2
+W2      @READ_ROM_MEMORY.P1
+W2 -W3  @DIV3232B.P2
+W2 -W3  @MULFF.P3
+W2 -W3  @DIVS3232A.P4
+W2      @READ_PACKED_MEMORY.P5
+W2 -W3  @DIVFF.P6
+W2 -W3  @MULS3232.P7
+W2 -W3  @FLT.P8
+W2 -W3  @ADDFF.P9
+W2      @WRITE_PACKED_MEMORY.P10
+W3      @READ_ROM_MEMORY.P1
+W3      @READ_PACKED_MEMORY.P2
+W3 -W5  @MULFF48.P3
+W3 -W5  @FLT48.P4
+W3 -W5  @DIVFF48.P5
+W3      @WRITE_PACKED_MEMORY.P6
+W3 -W5  @ADDFF48.P7
+W4 -W7  @ADDFF64.P1
+W4      @PRINTFD16_9600_5725_5724.P2
+W4 -W7  @MULFF64.P3
+W4 -W7  @DIVFF64.P4
+W4 -W7  @FLT64.P5
+W5      sentData.dataByte
+630.6   C1OUT
+630.7   C2OUT
+800-827 pas_64
+828-84F qas_64
+850-87F pat_64
+880-8AF qat_64
+8B0-8B3 pulseX
+8B4-8B7 pulseY
+8B8-8B9 rs232_errors
+8BA     feedBack
+8BB     firstFeedBack
+8BC-8BF dataCom
+8C0-8C1 i
+8C2-8C3 countHeader
+8C4.0   isReady
+8C4.1   X_HOME
+8C4.2   Y_HOME
+8C4.3   Z_HOME
+8C4.4   checkTime
+8C6-8C9 data
+8CA-8CF gripperRotate
+8D0-8D5 gripperKeep
+8D6-8E5 errMotorX
+8E6-8F5 errMotorY
+8F6-8FF curPos
+900-909 setPos
+90A-90B directZ
+90C-90F MAIN.now4
+910-911 decodePackage.data
+910     motorControl.dirX
+910-911 servoKeep.pulse
+910-911 servoRotate.pulse
+910-911 angleToPulse.degree
+911     motorControl.dirY
+912-915 angleToPulse.pulse
+912     sentData.cmd
+912-915 decodePackage.code
+914-915 sentData.data
+916     driveMotor.motor
+916-917 sentData.chksum
+916-917 decodePackage.chksm
+917     driveMotor.dir
+918-919 driveMotor.speed
+918-91B map.x
+918-919 sentData.i
+918-919 decodePackage.numIndex
+91C-91F map.in_min
+920-923 map.in_max
+922     pwmWrite.motor
+924-927 map.out_min
+924-927 pwmWrite.duty
+928-92B map.out_max
+928-92B pwmWrite.duty_pwm
+964-967 gotoXY.x
+968-96B gotoXY.y
+96C-96F gotoXY.divX
+96C     readSerialData.d
+970-971 distance.pulse
+970-973 gotoXY.divY
+972-979 distance.dis
+2780-27FF Stack
+
+ROM Allocation:
+000DFC  INT_EXT_INPUT1
+000E30  INT_EXT_INPUT2
+000E64  @GETCH_BIU_1
+000E86  readSerialData
+000EE2  @SITOF
+000F2C  @DIVFF
+000FF6  @MULFF
+0010BA  @F48TO64
+001100  distance
+00114A  @F64TO48
+00118E  @ADDFF
+001338  gotoXY
+00148E  TIMER1_isr
+0014E2  TIMER3_isr
+0014F0  onDetectLine
+001558  initTimer
+00157C  setupPwm
+001598  setSerialInterrupt
+00159C  setupEncoderInterrupt
+0015A6  servoRotate
+0015AC  servoKeep
+0015B2  @delay_ms1
+0015C2  setupHardware
+001608  @SI64TOF64
+00166C  @MULFF64
+00177C  @ADDFF64
+00196A  @F64TOSI64
+0019C0  @FLT
+001A28  @FTOSD
+001A68  pwmWrite
+001B08  driveMotor
+001BEC  sentData
+001C66  @MULS3232
+001CA8  @DIVS3232A
+001D26  map
+001D80  @SDTOF
+001DCE  @SFTOI
+001DFA  decodePackage
+001E60  @DIVFF64
+001F68  angleToPulse
+001FCE  @cinit1
+001FCE  MAIN
+00203A  @cinit2
+002150  servoControl
+002252  gotoHome
+002318  motorControl
+00247A  verifyLimitSwitch
+002492  onDataReceive
+
+Project Directory:
+    E:\Work\FIBO\3term1\module67\PICModule\
+
+Project Files:
+    main.c                                                  [18-Nov-18 16:28  CRC=9C28AD91]
+    lib\24FJ48GA002.h                                       [10-Oct-18 02:55  CRC=2B092578]
+    lib\BL_Support.h                                        [10-Oct-18 02:55  CRC=87294453]
+    const\const_var.h                                       [18-Nov-18 10:41  CRC=C39BC5AE]
+    const\pin_var.h                                         [17-Nov-18 18:27  CRC=BC9545AC]
+    C:\Program Files (x86)\PICC\drivers\stdint.h            [30-Dec-08 09:01  CRC=9F7F640F]
+    C:\Program Files (x86)\PICC\drivers\stddef.h            [16-Jul-10 09:27  CRC=897CEC6C]
+    C:\Program Files (x86)\PICC\drivers\math.h              [28-Sep-12 11:35  CRC=546412C9]
+    math\math_calculate.h                                   [24-Oct-18 00:32  CRC=9BB9CD12]
+    hw_io\interrupt.h                                       [18-Nov-18 04:18  CRC=39137037]
+    communication\print_form.h                              [24-Oct-18 00:20  CRC=CDA9697D]
+    communication\protocol.h                                [18-Nov-18 06:13  CRC=3EFFF9A9]
+    control\motor.h                                         [18-Nov-18 10:36  CRC=4F97E06E]
+    control\var.h                                           [27-Oct-18 18:08  CRC=030783B6]
+    control\position_control.h                              [18-Nov-18 16:27  CRC=47C457AB]
+
+Source signature=0F8B39E3
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC24FJ48GA002
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: SIGNED: 8,16,32
+    Float,Double:   32,64
+
+Output Files:
+    Errors:      main.err
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/eCOD:  main.cod
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

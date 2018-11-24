@@ -1,0 +1,136 @@
+ÀÄmain
+   ÃÄMAIN  0/1748  Ram=0
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄsetupHardware  0/70  Ram=0
+   ³  ³  ÃÄinitTimer  0/36  Ram=0
+   ³  ³  ÃÄsetupPwm  0/28  Ram=0
+   ³  ³  ÃÄsetSerialInterrupt  0/4  Ram=0
+   ³  ³  ÃÄsetupEncoderInterrupt  0/10  Ram=0
+   ³  ³  ÃÄservoRotate  0/6  Ram=2
+   ³  ³  ÃÄservoKeep  0/6  Ram=2
+   ³  ³  ÀÄ@delay_ms1  0/16  Ram=2
+   ³  ÃÄ@delay_ms1  0/16  Ram=2
+   ³  ÃÄservoControl  (Inline)  Ram=9
+   ³  ³  ÃÄ@SI64TOF64  0/100  Ram=0
+   ³  ³  ÃÄ@MULFF64  0/272  Ram=0
+   ³  ³  ÃÄ@SI64TOF64  0/100  Ram=0
+   ³  ³  ÃÄ@ADDFF64  0/494  Ram=8
+   ³  ³  ÃÄ@F64TOSI64  0/86  Ram=0
+   ³  ³  ÃÄ@SI64TOF64  0/100  Ram=0
+   ³  ³  ÃÄ@MULFF64  0/272  Ram=0
+   ³  ³  ÃÄ@SI64TOF64  0/100  Ram=0
+   ³  ³  ÃÄ@ADDFF64  0/494  Ram=8
+   ³  ³  ÃÄ@F64TOSI64  0/86  Ram=0
+   ³  ³  ÃÄservoRotate  0/6  Ram=2
+   ³  ³  ÀÄservoKeep  0/6  Ram=2
+   ³  ÃÄgotoHome  (Inline)  Ram=2
+   ³  ³  ÃÄdriveMotor  0/228  Ram=9
+   ³  ³  ³  ÃÄ@SITOF  0/74  Ram=2
+   ³  ³  ³  ÀÄpwmWrite  0/160  Ram=10
+   ³  ³  ³     ÃÄ@FLT  0/104  Ram=8
+   ³  ³  ³     ÃÄ@DIVFF  0/202  Ram=8
+   ³  ³  ³     ÃÄ@MULFF  0/196  Ram=8
+   ³  ³  ³     ÃÄ@FTOSD  0/64  Ram=4
+   ³  ³  ³     ÀÄ@FLT  0/104  Ram=8
+   ³  ³  ÃÄdriveMotor  0/228  Ram=9
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄdriveMotor  0/228  Ram=9
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄdriveMotor  0/228  Ram=9
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄdriveMotor  0/228  Ram=9
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄdriveMotor  0/228  Ram=9
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄsentData  0/122  Ram=8
+   ³  ÃÄdriveMotor  0/228  Ram=9
+   ³  ³  ÀÄ*
+   ³  ÃÄsentData  0/122  Ram=8
+   ³  ÃÄdriveMotor  0/228  Ram=9
+   ³  ³  ÀÄ*
+   ³  ÃÄmotorControl  (Inline)  Ram=7
+   ³  ³  ÃÄ@FLT  0/104  Ram=8
+   ³  ³  ÃÄ@FLT  0/104  Ram=8
+   ³  ³  ÃÄ@FLT  0/104  Ram=8
+   ³  ³  ÃÄ@FLT  0/104  Ram=8
+   ³  ³  ÃÄ@FTOSD  0/64  Ram=4
+   ³  ³  ÃÄmap  0/90  Ram=25
+   ³  ³  ³  ÃÄ@MULS3232  0/66  Ram=8
+   ³  ³  ³  ÀÄ@DIVS3232A  0/126  Ram=8
+   ³  ³  ÃÄ@SDTOF  0/78  Ram=4
+   ³  ³  ÃÄsentData  0/122  Ram=8
+   ³  ³  ÃÄ@FLT  0/104  Ram=8
+   ³  ³  ÃÄ@FLT  0/104  Ram=8
+   ³  ³  ÃÄ@FTOSD  0/64  Ram=4
+   ³  ³  ÃÄmap  0/90  Ram=25
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@SDTOF  0/78  Ram=4
+   ³  ³  ÃÄsentData  0/122  Ram=8
+   ³  ³  ÃÄ@SFTOI  0/44  Ram=4
+   ³  ³  ÃÄdriveMotor  0/228  Ram=9
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@SFTOI  0/44  Ram=4
+   ³  ³  ÀÄdriveMotor  0/228  Ram=9
+   ³  ³     ÀÄ*
+   ³  ÃÄverifyLimitSwitch  (Inline)  Ram=2
+   ³  ÀÄonDataReceive  (Inline)  Ram=0
+   ³     ÃÄdecodePackage  0/102  Ram=9
+   ³     ÃÄ@SI64TOF64  0/100  Ram=0
+   ³     ÃÄ@DIVFF64  0/264  Ram=8
+   ³     ÃÄ@F64TO48  0/68  Ram=0
+   ³     ÃÄ@FLT  0/104  Ram=8
+   ³     ÃÄ@FLT  0/104  Ram=8
+   ³     ÃÄ@FLT  0/104  Ram=8
+   ³     ÃÄsentData  0/122  Ram=8
+   ³     ÃÄ@ADDFF  0/426  Ram=8
+   ³     ÃÄ@SI64TOF64  0/100  Ram=0
+   ³     ÃÄ@DIVFF64  0/264  Ram=8
+   ³     ÃÄ@F64TO48  0/68  Ram=0
+   ³     ÃÄ@FLT  0/104  Ram=8
+   ³     ÃÄ@FLT  0/104  Ram=8
+   ³     ÃÄ@FLT  0/104  Ram=8
+   ³     ÃÄsentData  0/122  Ram=8
+   ³     ÃÄ@ADDFF  0/426  Ram=8
+   ³     ÃÄangleToPulse  0/102  Ram=6
+   ³     ³  ÀÄmap  0/90  Ram=25
+   ³     ³     ÀÄ*
+   ³     ÃÄsentData  0/122  Ram=8
+   ³     ÃÄsentData  0/122  Ram=8
+   ³     ÀÄsentData  0/122  Ram=8
+   ÃÄINT_EXT_INPUT1  0/52  Ram=2
+   ÃÄINT_EXT_INPUT2  0/52  Ram=2
+   ÃÄreadSerialData  0/92  Ram=6
+   ³  ÀÄ@GETCH_BIU_1  0/34  Ram=3
+   ÃÄTIMER1_isr  0/84  Ram=3
+   ³  ÃÄdistance  0/74  Ram=15
+   ³  ³  ÃÄ@SITOF  0/74  Ram=2
+   ³  ³  ÃÄ@DIVFF  0/202  Ram=8
+   ³  ³  ÃÄ@MULFF  0/196  Ram=8
+   ³  ³  ÀÄ@F48TO64  0/70  Ram=0
+   ³  ÃÄ@F64TO48  0/68  Ram=0
+   ³  ÃÄdistance  0/74  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄ@F64TO48  0/68  Ram=0
+   ³  ÀÄgotoXY  0/342  Ram=13
+   ³     ÃÄ@ADDFF  0/426  Ram=8
+   ³     ÃÄ@ADDFF  0/426  Ram=8
+   ³     ÃÄ@MULFF  0/196  Ram=8
+   ³     ÃÄ@ADDFF  0/426  Ram=8
+   ³     ÃÄ@MULFF  0/196  Ram=8
+   ³     ÃÄ@ADDFF  0/426  Ram=8
+   ³     ÃÄ@ADDFF  0/426  Ram=8
+   ³     ÃÄ@DIVFF  0/202  Ram=8
+   ³     ÃÄ@ADDFF  0/426  Ram=8
+   ³     ÃÄ@DIVFF  0/202  Ram=8
+   ³     ÃÄ@MULFF  0/196  Ram=8
+   ³     ÃÄ@MULFF  0/196  Ram=8
+   ³     ÃÄ@ADDFF  0/426  Ram=8
+   ³     ÃÄ@MULFF  0/196  Ram=8
+   ³     ÃÄ@ADDFF  0/426  Ram=8
+   ³     ÃÄ@MULFF  0/196  Ram=8
+   ³     ÃÄ@MULFF  0/196  Ram=8
+   ³     ÃÄ@ADDFF  0/426  Ram=8
+   ³     ÃÄ@MULFF  0/196  Ram=8
+   ³     ÀÄ@ADDFF  0/426  Ram=8
+   ÀÄTIMER3_isr  0/118  Ram=0
+      ÀÄonDetectLine  (Inline)  Ram=2
