@@ -35,8 +35,7 @@ volatile long pulseY = 0;
 int directZ = GO_FORWARD;
 
 #INT_TIMER1
-void TIMER1_isr(void)
-{
+void TIMER1_isr(void){
     curPos.x = distance(pulseX);
     curPos.y = distance(pulseY);
 
@@ -45,62 +44,49 @@ void TIMER1_isr(void)
 }
 
 #INT_TIMER3
-void TIMER3_isr(void)
-{
+void TIMER3_isr(void){
     onDetectLine();
 }
-void main(void)
-{
+
+void main(void){
     setupHardware();
     delay_ms(50);
 
-    while (TRUE)
-    {
+    while (TRUE){
+
         long now4 = get_timer4();
-        // update data to pc
-        if (now4 > 312)
-        {
-            // printf("curPos.z %d , setPos.z %d\n", curPos.z, setPos.z);
+        if (now4 > 625){
             servoControl();
             set_timer4(0);
         }
 
-        if (dataCom.cmd == GO_HOME)
-        {
+        if (dataCom.cmd == GO_HOME){
             gotoHome();
-        }
-        else
-        {
-            if (curPos.z == setPos.z)
-            {
+        }else{
+            if (curPos.z == setPos.z){
                 driveMotor(M_Z, GO_BREAK, 0);
-                if (feedBack.zPosition && !firstFeedBack.zPosition)
-                {
+                if (feedBack.zPosition && !firstFeedBack.zPosition){
                     feedBack.zPosition = FALSE;
                     sentData(TASK_COMPLETE, Z_POSITION);
                 }
-            }
-            else
-            {
+            }else{
                 driveMotor(M_Z, directZ, 0);
                 firstFeedBack.zPosition = FALSE;
             }
-
             motorControl(); // control motor via PID Feedback control
         }
-
-        // verify limit switch for set home
-        verifyLimitSwitch();
-        // handle when receive data from serial
-        onDataReceive();
+        
+        verifyLimitSwitch(); // verify limit switch for set home
+        onDataReceive(); // handle when receive data from serial
     }
 }
 
-void setupHardware()
-{
-
+void setupHardware(){
+    // setup pin
     set_tris_a(0b10100);
     set_tris_b(0b0011001011110000);
+
+    // setup interrupt & timer
     disable_interrupts(GLOBAL);
     initTimer();
     setupPwm();
@@ -108,30 +94,28 @@ void setupHardware()
     setupEncoderInterrupt();
     enable_interrupts(global);
 
+    // set go home default
     dataCom.cmd = GO_HOME;
     X_HOME = FALSE;
     Y_HOME = FALSE;
     Z_HOME = FALSE;
-
     servoRotate(DEFAULT_ROTATE);
     servoKeep(GRIPPER_OPEN);
     delay_ms(2000);
-    // driveMotor(M_Z, 0, 0);
 }
 
-void setupPwm()
-{
+void setupPwm(){
+    // setup pwm drive dc motor
     setup_timer2(TMR_INTERNAL | TMR_DIV_BY_8, TIME_PERIOD_PWM);
     setup_compare(1, COMPARE_PWM | COMPARE_TIMER2);
     setup_compare(2, COMPARE_PWM | COMPARE_TIMER2);
-    // enable_interrupts(INT_TIMER2);
 
+    // setup pwm servo
     setup_compare(3, COMPARE_PWM | COMPARE_TIMER3);
     setup_compare(4, COMPARE_PWM | COMPARE_TIMER3);
 }
 
-inline void verifyLimitSwitch()
-{
+inline void verifyLimitSwitch(){
     if (input(SWITCH_X) == 0)
         X_HOME = TRUE;
 
@@ -143,22 +127,16 @@ inline void verifyLimitSwitch()
 }
 
 BOOLEAN checkTime = FALSE;
-inline void onDetectLine()
-{
-    if (input(PIN_B9) == 0)
-    {
-        if (checkTime == FALSE)
-        {
+inline void onDetectLine(){
+    if (input(PIN_B9) == 0){
+        if (checkTime == FALSE){
             checkTime = TRUE;
-            if (directZ == GO_FORWARD)
-            {
+            if (directZ == GO_FORWARD){
                 if (curPos.z >= setPos.z)
                     curPos.z = setPos.z;
                 else
                     curPos.z = (curPos.z > 5) ? 5 : curPos.z + 1;
-            }
-            else
-            {
+            }else{
                 if (curPos.z <= setPos.z)
                     curPos.z = setPos.z;
                 else
@@ -167,20 +145,17 @@ inline void onDetectLine()
         }
     }
     else
-    {
         checkTime = FALSE;
-    }
+    
 }
 
-inline void onDataReceive()
-{
-    if (isReady)
-    {
+inline void onDataReceive() {
+    if (isReady) {
         isReady = false;
         dataCom = decodePackage(data);
+        float buff = dataCom.data1 / 100.0f;
 
-        switch (dataCom.cmd)
-        {
+        switch (dataCom.cmd) {
         case GO_HOME:
             feedBack.goHome = TRUE;
             firstFeedBack.goHome = TRUE;
@@ -199,13 +174,12 @@ inline void onDataReceive()
             // do something when get SET_POSITION command
             feedBack.xPosition = TRUE;
             firstFeedBack.xPosition = TRUE;
-            setPos.x = dataCom.data1 / 100.0f;
-            setPos.x = (setPos.x > MAX_WORK_SPACE_X) ? MAX_WORK_SPACE_X : (setPos.y < MIN_WORK_SPACE_X) ? MIN_WORK_SPACE_X : setPos.x;
 
-            if (setPos.x == curPos.x)
-            {
+            if (setPos.x == buff)
                 sentData(TASK_COMPLETE, X_POSITION);
-            }
+
+            setPos.x = buff;
+            setPos.x = (setPos.x > MAX_WORK_SPACE_X) ? MAX_WORK_SPACE_X : (setPos.y < MIN_WORK_SPACE_X) ? MIN_WORK_SPACE_X : setPos.x;
 
             // reset PID
             errMotorX.err = 0f;
@@ -213,27 +187,26 @@ inline void onDataReceive()
             errMotorX.sumErr = 0f;
             errMotorX.pError = setPos.x - curPos.x;
 
-            // firstFeedBack.goHome = FALSE;
             break;
 
         case Y_POSITION:
             // do something when get ROTATE command
             feedBack.yPosition = TRUE;
             firstFeedBack.yPosition = TRUE;
-            setPos.y = dataCom.data1 / 100.0f;
+
+            if (setPos.y == buff)
+                sentData(TASK_COMPLETE, Y_POSITION);
+
+            setPos.y = buff;
             setPos.y = (setPos.y > MAX_WORK_SPACE_Y) ? MAX_WORK_SPACE_Y : (setPos.y < MIN_WORK_SPACE_Y) ? MIN_WORK_SPACE_Y : setPos.y;
 
-            if (setPos.y == curPos.y)
-            {
-                sentData(TASK_COMPLETE, Y_POSITION);
-            }
+            
             // reset PID
             errMotorY.err = 0f;
             errMotorY.outPID = 0f;
             errMotorY.sumErr = 0;
             errMotorY.pError = setPos.y - curPos.y;
 
-            // firstFeedBack.goHome = FALSE;
             break;
 
         case Z_POSITION:
@@ -252,31 +225,33 @@ inline void onDataReceive()
             else
                 directZ = GO_BACKWARD;
 
-            // firstFeedBack.goHome = FALSE;
             break;
 
         case ROTATE:
             // do something when get Z_POSITION command
             feedBack.rotation = TRUE;
             firstFeedBack.rotation = TRUE;
+
+            if (gripperRotate.setAngle == angleToPulse(dataCom.data1))
+                sentData(TASK_COMPLETE, ROTATE);
             gripperRotate.setAngle = angleToPulse(dataCom.data1);
 
-            sentData(TASK_COMPLETE, ROTATE);
-
-            // firstFeedBack.goHome = FALSE;
             break;
 
         case KEEP:
             feedBack.keeping = TRUE;
             firstFeedBack.keeping = TRUE;
-            if (dataCom.data1 == 1)
+            if (dataCom.data1 == 1){
+                if (gripperKeep.setAngle == DEFAULT_KEEP)){
+                    sentData(TASK_COMPLETE, KEEP);
+                }
                 gripperKeep.setAngle = DEFAULT_KEEP;
-            else
+            }else{
+                if (gripperKeep.setAngle == GRIPPER_OPEN)){
+                    sentData(TASK_COMPLETE, KEEP);
+                }
                 gripperKeep.setAngle = GRIPPER_OPEN;
-
-            sentData(TASK_COMPLETE, KEEP);
-
-            // firstFeedBack.goHome = FALSE;
+            }
             break;
 
         default:

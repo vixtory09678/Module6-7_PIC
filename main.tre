@@ -1,5 +1,5 @@
 ÀÄmain
-   ÃÄMAIN  0/1748  Ram=0
+   ÃÄMAIN  0/1728  Ram=0
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄsetupHardware  0/70  Ram=0
    ³  ³  ÃÄinitTimer  0/36  Ram=0
@@ -79,17 +79,14 @@
    ³     ÃÄ@DIVFF64  0/264  Ram=8
    ³     ÃÄ@F64TO48  0/68  Ram=0
    ³     ÃÄ@FLT  0/104  Ram=8
-   ³     ÃÄ@FLT  0/104  Ram=8
-   ³     ÃÄ@FLT  0/104  Ram=8
    ³     ÃÄsentData  0/122  Ram=8
+   ³     ÃÄ@FLT  0/104  Ram=8
+   ³     ÃÄ@FLT  0/104  Ram=8
    ³     ÃÄ@ADDFF  0/426  Ram=8
-   ³     ÃÄ@SI64TOF64  0/100  Ram=0
-   ³     ÃÄ@DIVFF64  0/264  Ram=8
-   ³     ÃÄ@F64TO48  0/68  Ram=0
-   ³     ÃÄ@FLT  0/104  Ram=8
-   ³     ÃÄ@FLT  0/104  Ram=8
    ³     ÃÄ@FLT  0/104  Ram=8
    ³     ÃÄsentData  0/122  Ram=8
+   ³     ÃÄ@FLT  0/104  Ram=8
+   ³     ÃÄ@FLT  0/104  Ram=8
    ³     ÃÄ@ADDFF  0/426  Ram=8
    ³     ÃÄangleToPulse  0/102  Ram=6
    ³     ³  ÀÄmap  0/90  Ram=25

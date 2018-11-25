@@ -87,38 +87,39 @@ W5      sentData.dataByte
 900-909 setPos
 90A-90B directZ
 90C-90F MAIN.now4
-910-911 decodePackage.data
 910     motorControl.dirX
+910-913 onDataReceive.buff
 910-911 servoKeep.pulse
 910-911 servoRotate.pulse
-910-911 angleToPulse.degree
 911     motorControl.dirY
-912-915 angleToPulse.pulse
-912     sentData.cmd
-912-915 decodePackage.code
-914-915 sentData.data
+914-915 decodePackage.data
+914     sentData.cmd
+914-915 angleToPulse.degree
 916     driveMotor.motor
-916-917 sentData.chksum
-916-917 decodePackage.chksm
+916-919 angleToPulse.pulse
+916-919 decodePackage.code
+916-917 sentData.data
 917     driveMotor.dir
 918-919 driveMotor.speed
-918-91B map.x
-918-919 sentData.i
-918-919 decodePackage.numIndex
-91C-91F map.in_min
-920-923 map.in_max
+918-919 sentData.chksum
+91A-91B sentData.i
+91A-91B decodePackage.chksm
+91C-91F map.x
+91C-91D decodePackage.numIndex
+920-923 map.in_min
 922     pwmWrite.motor
-924-927 map.out_min
 924-927 pwmWrite.duty
-928-92B map.out_max
+924-927 map.in_max
+928-92B map.out_min
 928-92B pwmWrite.duty_pwm
-964-967 gotoXY.x
-968-96B gotoXY.y
-96C-96F gotoXY.divX
-96C     readSerialData.d
-970-971 distance.pulse
-970-973 gotoXY.divY
-972-979 distance.dis
+92C-92F map.out_max
+966-969 gotoXY.x
+96A-96D gotoXY.y
+96E-971 gotoXY.divX
+96E     readSerialData.d
+972-975 gotoXY.divY
+972-973 distance.pulse
+974-97B distance.dis
 2780-27FF Stack
 
 ROM Allocation:
@@ -175,7 +176,7 @@ Project Directory:
     E:\Work\FIBO\3term1\module67\PICModule\
 
 Project Files:
-    main.c                                                  [18-Nov-18 16:28  CRC=9C28AD91]
+    main.c                                                  [25-Nov-18 08:17  CRC=B43F7E1C]
     lib\24FJ48GA002.h                                       [10-Oct-18 02:55  CRC=2B092578]
     lib\BL_Support.h                                        [10-Oct-18 02:55  CRC=87294453]
     const\const_var.h                                       [18-Nov-18 10:41  CRC=C39BC5AE]
@@ -189,9 +190,9 @@ Project Files:
     communication\protocol.h                                [18-Nov-18 06:13  CRC=3EFFF9A9]
     control\motor.h                                         [18-Nov-18 10:36  CRC=4F97E06E]
     control\var.h                                           [27-Oct-18 18:08  CRC=030783B6]
-    control\position_control.h                              [18-Nov-18 16:27  CRC=47C457AB]
+    control\position_control.h                              [24-Nov-18 18:08  CRC=47C457AB]
 
-Source signature=0F8B39E3
+Source signature=27A20A6E
 
 Units:
     main (main)

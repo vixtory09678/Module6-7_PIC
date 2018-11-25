@@ -1,11 +1,11 @@
-CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
+CCS PCD C Compiler, Version 5.015, 5967               25-Nov-18 08:17
 
                Filename:   E:\Work\FIBO\3term1\module67\PICModule\main.lst
 
-               ROM used:   6818 bytes (20%)
-                           Largest free fragment is 23898
+               ROM used:   6798 bytes (20%)
+                           Largest free fragment is 23918
                RAM used:   395 (5%) at main() level
-                           523 (6%) worst case
+                           525 (6%) worst case
                Stack size: 128
 
 *
@@ -3972,7 +3972,7 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 *
 1100:  MOV     W5,[W15++]
 1102:  MOV     W6,[W15++]
-1104:  MOV     970,W0
+1104:  MOV     972,W0
 1106:  CALL    EE2
 110A:  MOV     W0,W5
 110C:  MOV     W1,W6
@@ -3992,17 +3992,17 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 112C:  MOV     W0,W1
 112E:  MOV     #0,W0
 1130:  CALL    10BA
-1134:  MOV     W0,972
-1136:  MOV     W1,974
-1138:  MOV     W2,976
-113A:  MOV     W3,978
+1134:  MOV     W0,974
+1136:  MOV     W1,976
+1138:  MOV     W2,978
+113A:  MOV     W3,97A
 .................... { 
 ....................     double dis = ((float)pulse / RESOLUTION) * LEAD; 
 ....................     return dis; 
-113C:  MOV     972,W0
-113E:  MOV     974,W1
-1140:  MOV     976,W2
-1142:  MOV     978,W3
+113C:  MOV     974,W0
+113E:  MOV     976,W1
+1140:  MOV     978,W2
+1142:  MOV     97A,W3
 1144:  MOV     [--W15],W6
 1146:  MOV     [--W15],W5
 1148:  RETURN  
@@ -4262,39 +4262,39 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 .................... { 
 ....................     register uint8_t dataByte[2]; 
 ....................     dataByte[0] = (data >> 8) & 0xFF; 
-1BF0:  MOV.B   915,W0L
+1BF0:  MOV.B   917,W0L
 1BF2:  MOV.B   W0L,W6L
 1BF4:  CLR.B   D
 1BF6:  MOV     W6,W5
 ....................     dataByte[1] = (data); 
-1BF8:  MOV.B   914,W0L
+1BF8:  MOV.B   916,W0L
 1BFA:  MOV.B   W0L,B
 ....................  
 ....................     int chksum = 0; 
-1BFC:  CLR     916
+1BFC:  CLR     918
 ....................     for (int i = 0; i < 2; i++) 
-1BFE:  CLR     918
-1C00:  MOV     918,W4
+1BFE:  CLR     91A
+1C00:  MOV     91A,W4
 1C02:  CP      W4,#2
 1C04:  BRA     GE,1C1A
 ....................         chksum += dataByte[i]; 
-1C06:  MOV     918,W4
+1C06:  MOV     91A,W4
 1C08:  ADD     W4,#A,W4
 1C0A:  MOV     W4,W0
 1C0C:  MOV     W0,W4
 1C0E:  MOV.B   [W4],W0L
 1C10:  ZE      W0,W0
 1C12:  CLR.B   1
-1C14:  ADD     916
-1C16:  INC     0918
+1C14:  ADD     918
+1C16:  INC     091A
 1C18:  BRA     1C00
 ....................     chksum = ~(chksum + cmd); 
-1C1A:  MOV     912,W4
+1C1A:  MOV     914,W4
 1C1C:  CLR.B   9
-1C1E:  MOV     916,W3
+1C1E:  MOV     918,W3
 1C20:  ADD     W3,W4,W0
 1C22:  COM     W0,W0
-1C24:  MOV     W0,916
+1C24:  MOV     W0,918
 ....................  
 ....................     printf("%c", 0xFF); 
 1C26:  BTSC.B  223.1
@@ -4309,7 +4309,7 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 ....................     printf("%c", cmd); 
 1C36:  BTSC.B  223.1
 1C38:  BRA     1C36
-1C3A:  MOV.B   912,W0L
+1C3A:  MOV.B   914,W0L
 1C3C:  MOV.B   W0L,224
 1C3E:  CLR.B   225
 ....................     printf("%c", dataByte[0]); 
@@ -4328,7 +4328,7 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 ....................     printf("%c", (unsigned char)chksum); 
 1C56:  BTSC.B  223.1
 1C58:  BRA     1C56
-1C5A:  MOV.B   916,W0L
+1C5A:  MOV.B   918,W0L
 1C5C:  MOV.B   W0L,224
 1C5E:  CLR.B   225
 1C60:  MOV     [--W15],W6
@@ -4343,67 +4343,67 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 ....................     decode_ code; 
 ....................     code.cmd = ERROR_DECODE; 
 1DFC:  MOV.B   #64,W0L
-1DFE:  MOV.B   W0L,912
+1DFE:  MOV.B   W0L,916
 ....................  
 ....................     //checksum 
 ....................     int chksm = 0; 
-1E00:  CLR     916
+1E00:  CLR     91A
 ....................     for (int numIndex = 0; numIndex < BUFFER_SIZE - 1; numIndex++) 
-1E02:  CLR     918
-1E04:  MOV     918,W4
+1E02:  CLR     91C
+1E04:  MOV     91C,W4
 1E06:  CP      W4,#3
 1E08:  BRA     GE,1E18
 ....................         chksm += data[numIndex] & 0xff; 
-1E0A:  MOV     918,W0
-1E0C:  ADD     910,W0
+1E0A:  MOV     91C,W0
+1E0C:  ADD     914,W0
 1E0E:  MOV.B   [W0],W0L
 1E10:  AND     #FF,W0
-1E12:  ADD     916
-1E14:  INC     0918
+1E12:  ADD     91A
+1E14:  INC     091C
 1E16:  BRA     1E04
 ....................     chksm = (~chksm) & 0xff; 
-1E18:  COM     0916,W0
+1E18:  COM     091A,W0
 1E1A:  MOV     W0,W5
 1E1C:  MOV     W5,W4
 1E1E:  AND     #FF,W4
-1E20:  MOV     W4,916
+1E20:  MOV     W4,91A
 ....................  
 ....................     if (chksm != data[BUFFER_SIZE - 1]) 
 1E22:  MOV     #3,W0
-1E24:  ADD     910,W0
+1E24:  ADD     914,W0
 1E26:  MOV     W0,W4
 1E28:  MOV.B   [W4],W0L
 1E2A:  CLR.B   1
-1E2C:  CP      916
+1E2C:  CP      91A
 1E2E:  BRA     Z,1E36
 ....................         return code; 
-1E30:  MOV     912,W0
-1E32:  MOV     914,W1
+1E30:  MOV     916,W0
+1E32:  MOV     918,W1
 1E34:  BRA     1E5C
 ....................  
 ....................     // happy part 
 ....................     code.cmd = data[0]; 
 1E36:  MOV     #0,W0
-1E38:  ADD     910,W0
-1E3A:  MOV     912,W4
+1E38:  ADD     914,W0
+1E3A:  MOV     916,W4
 1E3C:  MOV.B   [W0+#0],W4L
-1E3E:  MOV     W4,912
+1E3E:  MOV     W4,916
 ....................     code.data1 = (data[1] << 8) | data[2]; 
 1E40:  MOV     #1,W0
-1E42:  ADD     910,W0
+1E42:  ADD     914,W0
 1E44:  MOV.B   [W0],W0L
 1E46:  MOV.B   W0L,B
 1E48:  CLR.B   W5
 1E4A:  MOV     #2,W0
-1E4C:  ADD     910,W0
+1E4C:  ADD     914,W0
 1E4E:  MOV     W0,W4
 1E50:  MOV.B   [W4],W0L
 1E52:  CLR.B   1
 1E54:  IOR      W5,  W0,W0
-1E56:  MOV     W0,914
+1E56:  MOV     W0,918
 ....................     return code; 
-1E58:  MOV     912,W0
-1E5A:  MOV     914,W1
+1E58:  MOV     916,W0
+1E5A:  MOV     918,W1
 1E5C:  MOV     [--W15],W5
 1E5E:  RETURN  
 .................... } 
@@ -4424,7 +4424,7 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 0E90:  REPEAT  #C
 0E92:  MOV     [W0++],[W15++]
 0E94:  CALL    E64
-0E98:  MOV.B   W0L,96C
+0E98:  MOV.B   W0L,96E
 .................... { 
 ....................     // receive data 
 ....................     uint8_t d = getc(); 
@@ -4435,7 +4435,7 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 0E9E:  BRA     GE,EB6
 ....................     { 
 ....................         if ((d & 0xff) == 0xFF) 
-0EA0:  MOV     96C,W5
+0EA0:  MOV     96E,W5
 0EA2:  AND     #FF,W5
 0EA4:  MOV     #FF,W4
 0EA6:  CP      W4,W5
@@ -4458,7 +4458,7 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 0EBA:  MOV     W0,W5
 0EBC:  MOV     #8C6,W4
 0EBE:  ADD     W5,W4,W6
-0EC0:  MOV     96C,W0
+0EC0:  MOV     96E,W0
 0EC2:  MOV.B   W0L,[W6+#0]
 ....................         if (i > (BUFFER_SIZE - 1)) 
 0EC4:  MOV     8C0,W4
@@ -4555,63 +4555,63 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 ....................  
 .................... long angleToPulse(int degree) 
 *
-1F68:  MOV     910,W0
+1F68:  MOV     914,W0
 1F6A:  CLR     W1
 1F6C:  BTSC    W0.F
 1F6E:  SETM    W1
-1F70:  MOV     W0,912
-1F72:  MOV     W1,914
+1F70:  MOV     W0,916
+1F72:  MOV     W1,918
 .................... { 
 ....................     long pulse = degree; 
 ....................     if (pulse > 180) 
-1F74:  MOV     914,W4
+1F74:  MOV     918,W4
 1F76:  CP      W4,#0
 1F78:  BRA     LT,1F8C
 1F7A:  BRA     GT,1F84
-1F7C:  MOV     912,W4
+1F7C:  MOV     916,W4
 1F7E:  MOV     #B4,W3
 1F80:  CP      W3,W4
 1F82:  BRA     C,1F8C
 ....................         pulse = 180; 
 1F84:  MOV     #B4,W4
-1F86:  MOV     W4,912
-1F88:  CLR     914
+1F86:  MOV     W4,916
+1F88:  CLR     918
 1F8A:  BRA     1F9E
 ....................     else if (pulse < 0) 
-1F8C:  MOV     914,W4
+1F8C:  MOV     918,W4
 1F8E:  CP      W4,#0
 1F90:  BRA     GT,1F9E
 1F92:  BRA     LT,1F9A
-1F94:  MOV     912,W4
+1F94:  MOV     916,W4
 1F96:  CP      W4,#0
 1F98:  BRA     C,1F9E
 ....................         pulse = 0; 
-1F9A:  CLR     912
-1F9C:  CLR     914
+1F9A:  CLR     916
+1F9C:  CLR     918
 ....................     pulse = map(degree, 0, 180, 32, 127); 
-1F9E:  PUSH    910
-1FA0:  POP     918
+1F9E:  PUSH    914
+1FA0:  POP     91C
 1FA2:  CLR     W4
-1FA4:  BTSC.B  919.7
+1FA4:  BTSC.B  91D.7
 1FA6:  SETM    W4
-1FA8:  MOV     W4,91A
-1FAA:  CLR     91C
-1FAC:  CLR     91E
+1FA8:  MOV     W4,91E
+1FAA:  CLR     920
+1FAC:  CLR     922
 1FAE:  MOV     #B4,W4
-1FB0:  MOV     W4,920
-1FB2:  CLR     922
+1FB0:  MOV     W4,924
+1FB2:  CLR     926
 1FB4:  MOV     #20,W4
-1FB6:  MOV     W4,924
-1FB8:  CLR     926
+1FB6:  MOV     W4,928
+1FB8:  CLR     92A
 1FBA:  MOV     #7F,W4
-1FBC:  MOV     W4,928
-1FBE:  CLR     92A
+1FBC:  MOV     W4,92C
+1FBE:  CLR     92E
 1FC0:  CALL    1D26
-1FC4:  MOV     W0,912
-1FC6:  MOV     W1,914
+1FC4:  MOV     W0,916
+1FC6:  MOV     W1,918
 ....................     return pulse; 
-1FC8:  MOV     912,W0
-1FCA:  MOV     914,W1
+1FC8:  MOV     916,W0
+1FCA:  MOV     918,W1
 1FCC:  RETURN  
 .................... } 
 ....................  
@@ -4798,8 +4798,8 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 .................... { 
 ....................     errMotorX.err = x - curPos.x; 
 133C:  BSET.B  43.0
-133E:  MOV     964,W0
-1340:  MOV     966,W1
+133E:  MOV     966,W0
+1340:  MOV     968,W1
 1342:  MOV     8F6,W2
 1344:  MOV     8F8,W3
 1346:  CALL    118E
@@ -4807,8 +4807,8 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 134C:  MOV     W1,8D8
 ....................     errMotorY.err = y - curPos.y; 
 134E:  BSET.B  43.0
-1350:  MOV     968,W0
-1352:  MOV     96A,W1
+1350:  MOV     96A,W0
+1352:  MOV     96C,W1
 1354:  MOV     8FA,W2
 1356:  MOV     8FC,W3
 1358:  CALL    118E
@@ -4859,8 +4859,8 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 13B2:  MOV     #D70A,W2
 13B4:  MOV     #3C23,W3
 13B6:  CALL    F2C
-13BA:  MOV     W0,96C
-13BC:  MOV     W1,96E
+13BA:  MOV     W0,96E
+13BC:  MOV     W1,970
 13BE:  BSET.B  43.0
 13C0:  MOV     8E6,W0
 13C2:  MOV     8E8,W1
@@ -4874,8 +4874,8 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 13D4:  MOV     #D70A,W2
 13D6:  MOV     #3C23,W3
 13D8:  CALL    F2C
-13DC:  MOV     W0,970
-13DE:  MOV     W1,972
+13DC:  MOV     W0,972
+13DE:  MOV     W1,974
 ....................  
 ....................     errMotorX.outPID = (Kp_X * errMotorX.err) + (Ki_X * errMotorX.sumErr) + (Kd_X * divX); 
 13E0:  MOV     #0,W0
@@ -4900,8 +4900,8 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 140C:  MOV     W1,W6
 140E:  MOV     #0,W0
 1410:  MOV     #0,W1
-1412:  MOV     96C,W2
-1414:  MOV     96E,W3
+1412:  MOV     96E,W2
+1414:  MOV     970,W3
 1416:  CALL    FF6
 141A:  BCLR.B  43.0
 141C:  MOV     W0,W2
@@ -4934,8 +4934,8 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 1458:  MOV     W1,W6
 145A:  MOV     #0,W0
 145C:  MOV     #4040,W1
-145E:  MOV     970,W2
-1460:  MOV     972,W3
+145E:  MOV     972,W2
+1460:  MOV     974,W3
 1462:  CALL    FF6
 1466:  BCLR.B  43.0
 1468:  MOV     W0,W2
@@ -4967,17 +4967,17 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 1D28:  MOV     W6,[W15++]
 .................... { 
 ....................     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min; 
-1D2A:  MOV     918,W4
-1D2C:  MOV     91C,W3
+1D2A:  MOV     91C,W4
+1D2C:  MOV     920,W3
 1D2E:  SUB     W4,W3,W5
-1D30:  MOV     91A,W4
-1D32:  MOV     91E,W3
+1D30:  MOV     91E,W4
+1D32:  MOV     922,W3
 1D34:  SUBB    W4,W3,W6
-1D36:  MOV     928,W4
-1D38:  MOV     924,W3
+1D36:  MOV     92C,W4
+1D38:  MOV     928,W3
 1D3A:  SUB     W4,W3,W0
-1D3C:  MOV     92A,W4
-1D3E:  MOV     926,W3
+1D3C:  MOV     92E,W4
+1D3E:  MOV     92A,W3
 1D40:  SUBB    W4,W3,W1
 1D42:  MOV     W0,W2
 1D44:  MOV     W1,W3
@@ -4986,11 +4986,11 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 1D4A:  CALL    1C66
 1D4E:  MOV     W0,W5
 1D50:  MOV     W1,W6
-1D52:  MOV     920,W4
-1D54:  MOV     91C,W3
+1D52:  MOV     924,W4
+1D54:  MOV     920,W3
 1D56:  SUB     W4,W3,W0
-1D58:  MOV     922,W4
-1D5A:  MOV     91E,W3
+1D58:  MOV     926,W4
+1D5A:  MOV     922,W3
 1D5C:  SUBB    W4,W3,W1
 1D5E:  BCLR.B  43.0
 1D60:  MOV     W0,W2
@@ -5001,8 +5001,8 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 1D6C:  MOV     W0,W5
 1D6E:  MOV     W1,W6
 1D70:  MOV     W5,W0
-1D72:  ADD     924,W0
-1D74:  MOV     926,W4
+1D72:  ADD     928,W0
+1D74:  MOV     92A,W4
 1D76:  ADDC    W6,W4,W1
 1D78:  MOV.D   W0,W0
 1D7A:  MOV     [--W15],W6
@@ -5134,7 +5134,7 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 215C:  SUB     W4,W3,W0
 215E:  MOV     W0,8D2
 ....................  
-....................     gripperRotate.curAngle += (gripperRotate.error * 0.5); 
+....................     gripperRotate.curAngle += (gripperRotate.error * 0.2); 
 2160:  MOV     8CC,W0
 2162:  CLR     W3
 2164:  BTSC    W0.F
@@ -5142,10 +5142,10 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 2168:  MOV     W3,W1
 216A:  MOV     W3,W2
 216C:  CALL    1608
-2170:  MOV     #0,W4
-2172:  MOV     #0,W5
-2174:  MOV     #0,W6
-2176:  MOV     #3FE0,W7
+2170:  MOV     #999A,W4
+2172:  MOV     #9999,W5
+2174:  MOV     #9999,W6
+2176:  MOV     #3FC9,W7
 2178:  CALL    166C
 217C:  MOV     W0,W5
 217E:  MOV     W1,W6
@@ -5172,7 +5172,7 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 21AC:  MOV     [--W15],W5
 21AE:  CALL    196A
 21B2:  MOV     W0,8CA
-....................     gripperKeep.curAngle += (gripperKeep.error * 0.5); 
+....................     gripperKeep.curAngle += (gripperKeep.error * 0.2); 
 21B4:  MOV     8D2,W0
 21B6:  CLR     W3
 21B8:  BTSC    W0.F
@@ -5180,10 +5180,10 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 21BC:  MOV     W3,W1
 21BE:  MOV     W3,W2
 21C0:  CALL    1608
-21C4:  MOV     #0,W4
-21C6:  MOV     #0,W5
-21C8:  MOV     #0,W6
-21CA:  MOV     #3FE0,W7
+21C4:  MOV     #999A,W4
+21C6:  MOV     #9999,W5
+21C8:  MOV     #9999,W6
+21CA:  MOV     #3FC9,W7
 21CC:  CALL    166C
 21D0:  MOV     W0,W5
 21D2:  MOV     W1,W6
@@ -5211,7 +5211,7 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 2202:  CALL    196A
 2206:  MOV     W0,8D0
 ....................  
-....................     gripperRotate.error = (abs(gripperRotate.error) > 2) ? gripperRotate.error : 0; 
+....................     gripperRotate.error = (abs(gripperRotate.error) > 1) ? gripperRotate.error : 0; 
 2208:  MOV     8CC,W0
 220A:  BTSS    W0.F
 220C:  BRA     2214
@@ -5219,7 +5219,7 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 2210:  MOV     8CC,W3
 2212:  SUB     W4,W3,W0
 2214:  MOV     W0,W5
-2216:  CP      W5,#2
+2216:  CP      W5,#1
 2218:  BRA     LE,221E
 221A:  MOV     8CC,W0
 221C:  BRA     2220
@@ -5230,7 +5230,7 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 2224:  POP     910
 2226:  CALL    15A6
 ....................  
-....................     gripperKeep.error = (abs(gripperKeep.error) > 2) ? gripperKeep.error : 0; 
+....................     gripperKeep.error = (abs(gripperKeep.error) > 1) ? gripperKeep.error : 0; 
 222A:  MOV     8D2,W0
 222C:  BTSS    W0.F
 222E:  BRA     2236
@@ -5238,7 +5238,7 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 2232:  MOV     8D2,W3
 2234:  SUB     W4,W3,W0
 2236:  MOV     W0,W5
-2238:  CP      W5,#2
+2238:  CP      W5,#1
 223A:  BRA     LE,2240
 223C:  MOV     8D2,W0
 223E:  BRA     2242
@@ -5304,19 +5304,19 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 2374:  CALL    1A28
 2378:  MOV     W0,W5
 237A:  MOV     W1,W6
-237C:  MOV     W5,918
-237E:  MOV     W6,91A
-2380:  CLR     91C
-2382:  CLR     91E
+237C:  MOV     W5,91C
+237E:  MOV     W6,91E
+2380:  CLR     920
+2382:  CLR     922
 2384:  MOV     #64,W4
-2386:  MOV     W4,920
-2388:  CLR     922
+2386:  MOV     W4,924
+2388:  CLR     926
 238A:  MOV     #32,W4
-238C:  MOV     W4,924
-238E:  CLR     926
+238C:  MOV     W4,928
+238E:  CLR     92A
 2390:  MOV     #64,W4
-2392:  MOV     W4,928
-2394:  CLR     92A
+2392:  MOV     W4,92C
+2394:  CLR     92E
 2396:  CALL    1D26
 239A:  CALL    1D80
 239E:  MOV     W0,8E2
@@ -5337,9 +5337,9 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 23AE:  BCLR.B  8BA.1
 ....................             sentData(TASK_COMPLETE, X_POSITION); 
 23B0:  MOV.B   #65,W0L
-23B2:  MOV.B   W0L,912
+23B2:  MOV.B   W0L,914
 23B4:  MOV     #1,W4
-23B6:  MOV     W4,914
+23B6:  MOV     W4,916
 23B8:  CALL    1BEC
 ....................         } 
 ....................         dirX = GO_BREAK; 
@@ -5378,19 +5378,19 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 23F4:  CALL    1A28
 23F8:  MOV     W0,W5
 23FA:  MOV     W1,W6
-23FC:  MOV     W5,918
-23FE:  MOV     W6,91A
-2400:  CLR     91C
-2402:  CLR     91E
+23FC:  MOV     W5,91C
+23FE:  MOV     W6,91E
+2400:  CLR     920
+2402:  CLR     922
 2404:  MOV     #64,W4
-2406:  MOV     W4,920
-2408:  CLR     922
+2406:  MOV     W4,924
+2408:  CLR     926
 240A:  MOV     #1E,W4
-240C:  MOV     W4,924
-240E:  CLR     926
+240C:  MOV     W4,928
+240E:  CLR     92A
 2410:  MOV     #64,W4
-2412:  MOV     W4,928
-2414:  CLR     92A
+2412:  MOV     W4,92C
+2414:  CLR     92E
 2416:  CALL    1D26
 241A:  CALL    1D80
 241E:  MOV     W0,8F2
@@ -5411,9 +5411,9 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 242E:  BCLR.B  8BA.2
 ....................             sentData(TASK_COMPLETE, Y_POSITION); 
 2430:  MOV.B   #65,W0L
-2432:  MOV.B   W0L,912
+2432:  MOV.B   W0L,914
 2434:  MOV     #2,W4
-2436:  MOV     W4,914
+2436:  MOV     W4,916
 2438:  CALL    1BEC
 ....................         } 
 ....................         dirY = GO_BREAK; 
@@ -5548,8 +5548,8 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 22CE:  BCLR.B  8BA.0
 ....................             sentData(TASK_COMPLETE, GO_HOME); 
 22D0:  MOV.B   #65,W0L
-22D2:  MOV.B   W0L,912
-22D4:  CLR     914
+22D2:  MOV.B   W0L,914
+22D4:  CLR     916
 22D6:  CALL    1BEC
 ....................         } 
 ....................     } 
@@ -5581,14 +5581,14 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 .................... { 
 ....................     curPos.x = distance(pulseX); 
 149C:  MOV     8B0,W5
-149E:  MOV     W5,970
+149E:  MOV     W5,972
 14A0:  CALL    1100
 14A4:  CALL    114A
 14A8:  MOV     W1,8F6
 14AA:  MOV     W2,8F8
 ....................     curPos.y = distance(pulseY); 
 14AC:  MOV     8B4,W5
-14AE:  MOV     W5,970
+14AE:  MOV     W5,972
 14B0:  CALL    1100
 14B4:  CALL    114A
 14B8:  MOV     W1,8FA
@@ -5596,13 +5596,13 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 ....................  
 ....................     gotoXY(setPos.x, setPos.y); 
 14BC:  PUSH    900
-14BE:  POP     964
+14BE:  POP     966
 14C0:  PUSH    902
-14C2:  POP     966
+14C2:  POP     968
 14C4:  PUSH    904
-14C6:  POP     968
+14C6:  POP     96A
 14C8:  PUSH    906
-14CA:  POP     96A
+14CA:  POP     96C
 14CC:  CALL    1338
 ....................     // onDetectLine(); 
 .................... } 
@@ -5825,13 +5825,13 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 213C:  MOV     W0,90C
 213E:  MOV     W1,90E
 ....................         // update data to pc 
-....................         if (now4 > 312) 
+....................         if (now4 > 625) 
 2140:  MOV     90E,W4
 2142:  CP      W4,#0
 2144:  BRA     LT,224E
 2146:  BRA     GT,2150
 2148:  MOV     90C,W4
-214A:  MOV     #138,W3
+214A:  MOV     #271,W3
 214C:  CP      W3,W4
 214E:  BRA     C,224E
 ....................         { 
@@ -5874,9 +5874,9 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 22F8:  BCLR.B  8BA.3
 ....................                     sentData(TASK_COMPLETE, Z_POSITION); 
 22FA:  MOV.B   #65,W0L
-22FC:  MOV.B   W0L,912
+22FC:  MOV.B   W0L,914
 22FE:  MOV     #3,W4
-2300:  MOV     W4,914
+2300:  MOV     W4,916
 2302:  CALL    1BEC
 ....................                 } 
 ....................             } 
@@ -5902,11 +5902,11 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 ....................         // handle when receive data from serial 
 ....................         onDataReceive(); 
 *
-269E:  BRA     2138
+268A:  BRA     2138
 ....................     } 
 .................... } 
 ....................  
-26A0:  PWRSAV  #0
+268C:  PWRSAV  #0
 .................... void setupHardware() 
 .................... { 
 ....................  
@@ -6089,354 +6089,348 @@ CCS PCD C Compiler, Version 5.015, 5967               18-Nov-18 16:28
 ....................     if (isReady) 
 *
 2492:  BTSS.B  8C4.0
-2494:  BRA     269E
+2494:  BRA     268A
 ....................     { 
 ....................         isReady = false; 
 2496:  BCLR.B  8C4.0
 ....................         dataCom = decodePackage(data); 
 2498:  MOV     #8C6,W4
-249A:  MOV     W4,910
+249A:  MOV     W4,914
 249C:  CALL    1DFA
 24A0:  MOV     W0,8BC
 24A2:  MOV     W1,8BE
+....................         float buff = dataCom.data1 / 100.0f; 
+24A4:  MOV     8BE,W0
+24A6:  CLR     W3
+24A8:  BTSC    W0.F
+24AA:  SETM    W3
+24AC:  MOV     W3,W1
+24AE:  MOV     W3,W2
+24B0:  CALL    1608
+24B4:  MOV     #0,W4
+24B6:  MOV     #0,W5
+24B8:  MOV     #0,W6
+24BA:  MOV     #4059,W7
+24BC:  CALL    1E60
+24C0:  CALL    114A
+24C4:  MOV     W1,910
+24C6:  MOV     W2,912
 ....................  
 ....................         switch (dataCom.cmd) 
-24A4:  MOV.B   8BC,W0L
-24A6:  CLR.B   1
-24A8:  XOR     #0,W0
-24AA:  BRA     Z,24C2
-24AC:  XOR     #1,W0
-24AE:  BRA     Z,24E4
-24B0:  XOR     #3,W0
-24B2:  BRA     Z,2584
-24B4:  XOR     #1,W0
-24B6:  BRA     Z,2624
-24B8:  XOR     #7,W0
-24BA:  BRA     Z,2654
-24BC:  XOR     #1,W0
-24BE:  BRA     Z,2670
-24C0:  BRA     2692
+24C8:  MOV.B   8BC,W0L
+24CA:  CLR.B   1
+24CC:  XOR     #0,W0
+24CE:  BRA     Z,24E6
+24D0:  XOR     #1,W0
+24D2:  BRA     Z,2508
+24D4:  XOR     #3,W0
+24D6:  BRA     Z,258C
+24D8:  XOR     #1,W0
+24DA:  BRA     Z,2610
+24DC:  XOR     #7,W0
+24DE:  BRA     Z,2640
+24E0:  XOR     #1,W0
+24E2:  BRA     Z,265C
+24E4:  BRA     267E
 ....................         { 
 ....................         case GO_HOME: 
 ....................             feedBack.goHome = TRUE; 
-24C2:  BSET.B  8BA.0
+24E6:  BSET.B  8BA.0
 ....................             firstFeedBack.goHome = TRUE; 
-24C4:  BSET.B  8BB.0
+24E8:  BSET.B  8BB.0
 ....................             X_HOME = FALSE; 
-24C6:  BCLR.B  8C4.1
+24EA:  BCLR.B  8C4.1
 ....................             Y_HOME = FALSE; 
-24C8:  BCLR.B  8C4.2
+24EC:  BCLR.B  8C4.2
 ....................             Z_HOME = FALSE; 
-24CA:  BCLR.B  8C4.3
+24EE:  BCLR.B  8C4.3
 ....................             setPos.x = 0.0; 
-24CC:  CLR     900
-24CE:  CLR     902
+24F0:  CLR     900
+24F2:  CLR     902
 ....................             setPos.y = 0.0; 
-24D0:  CLR     904
-24D2:  CLR     906
+24F4:  CLR     904
+24F6:  CLR     906
 ....................             setPos.z = 0; 
-24D4:  CLR     908
+24F8:  CLR     908
 ....................             directZ = GO_FORWARD; 
-24D6:  MOV     #1,W4
-24D8:  MOV     W4,90A
+24FA:  MOV     #1,W4
+24FC:  MOV     W4,90A
 ....................             gripperRotate.setAngle = DEFAULT_ROTATE; 
-24DA:  MOV     #7F,W4
-24DC:  MOV     W4,8CE
+24FE:  MOV     #7F,W4
+2500:  MOV     W4,8CE
 ....................             gripperKeep.setAngle = GRIPPER_OPEN; 
-24DE:  MOV     #64,W4
-24E0:  MOV     W4,8D4
+2502:  MOV     #64,W4
+2504:  MOV     W4,8D4
 ....................             break; 
-24E2:  BRA     269E
+2506:  BRA     268A
 ....................  
 ....................         case X_POSITION: 
 ....................             // do something when get SET_POSITION command 
 ....................             feedBack.xPosition = TRUE; 
-24E4:  BSET.B  8BA.1
+2508:  BSET.B  8BA.1
 ....................             firstFeedBack.xPosition = TRUE; 
-24E6:  BSET.B  8BB.1
-....................             setPos.x = dataCom.data1 / 100.0f; 
-24E8:  MOV     8BE,W0
-24EA:  CLR     W3
-24EC:  BTSC    W0.F
-24EE:  SETM    W3
-24F0:  MOV     W3,W1
-24F2:  MOV     W3,W2
-24F4:  CALL    1608
-24F8:  MOV     #0,W4
-24FA:  MOV     #0,W5
-24FC:  MOV     #0,W6
-24FE:  MOV     #4059,W7
-2500:  CALL    1E60
-2504:  CALL    114A
-2508:  MOV     W1,900
-250A:  MOV     W2,902
-....................             setPos.x = (setPos.x > MAX_WORK_SPACE_X) ? MAX_WORK_SPACE_X : (setPos.y < MIN_WORK_SPACE_X) ? MIN_WORK_SPACE_X : setPos.x; 
-250C:  MOV     #0,W0
-250E:  MOV     #4387,W1
-2510:  MOV     900,W2
-2512:  MOV     902,W3
-2514:  CALL    19C0
-2518:  BRA     NC,2520
-251A:  MOV     #0,W0
-251C:  MOV     #4387,W1
-251E:  BRA     2538
-2520:  MOV     904,W0
-2522:  MOV     906,W1
-2524:  MOV     #0,W2
-2526:  MOV     #41A0,W3
-2528:  CALL    19C0
-252C:  BRA     NC,2534
-252E:  MOV     #0,W0
-2530:  MOV     #41A0,W1
-2532:  BRA     2538
-2534:  MOV     900,W0
-2536:  MOV     902,W1
-2538:  MOV     W0,900
-253A:  MOV     W1,902
+250A:  BSET.B  8BB.1
 ....................  
-....................             if (setPos.x == curPos.x) 
-253C:  MOV     900,W0
-253E:  MOV     902,W1
-2540:  MOV     8F6,W2
-2542:  MOV     8F8,W3
-2544:  CALL    19C0
-2548:  BRA     NZ,2556
-....................             { 
+....................             if (setPos.x == buff) 
+250C:  MOV     900,W0
+250E:  MOV     902,W1
+2510:  MOV     910,W2
+2512:  MOV     912,W3
+2514:  CALL    19C0
+2518:  BRA     NZ,2526
 ....................                 sentData(TASK_COMPLETE, X_POSITION); 
-254A:  MOV.B   #65,W0L
-254C:  MOV.B   W0L,912
-254E:  MOV     #1,W4
-2550:  MOV     W4,914
-2552:  CALL    1BEC
-....................             } 
+251A:  MOV.B   #65,W0L
+251C:  MOV.B   W0L,914
+251E:  MOV     #1,W4
+2520:  MOV     W4,916
+2522:  CALL    1BEC
+....................  
+....................             setPos.x = buff; 
+2526:  PUSH    910
+2528:  POP     900
+252A:  PUSH    912
+252C:  POP     902
+....................             setPos.x = (setPos.x > MAX_WORK_SPACE_X) ? MAX_WORK_SPACE_X : (setPos.y < MIN_WORK_SPACE_X) ? MIN_WORK_SPACE_X : setPos.x; 
+252E:  MOV     #0,W0
+2530:  MOV     #4387,W1
+2532:  MOV     900,W2
+2534:  MOV     902,W3
+2536:  CALL    19C0
+253A:  BRA     NC,2542
+253C:  MOV     #0,W0
+253E:  MOV     #4387,W1
+2540:  BRA     255A
+2542:  MOV     904,W0
+2544:  MOV     906,W1
+2546:  MOV     #0,W2
+2548:  MOV     #41A0,W3
+254A:  CALL    19C0
+254E:  BRA     NC,2556
+2550:  MOV     #0,W0
+2552:  MOV     #41A0,W1
+2554:  BRA     255A
+2556:  MOV     900,W0
+2558:  MOV     902,W1
+255A:  MOV     W0,900
+255C:  MOV     W1,902
 ....................  
 ....................             // reset PID 
 ....................             errMotorX.err = 0f; 
-2556:  CLR     8D6
-2558:  CLR     8D8
+255E:  CLR     8D6
+2560:  CLR     8D8
 ....................             errMotorX.outPID = 0f; 
-255A:  CLR     8E2
-255C:  CLR     8E4
+2562:  CLR     8E2
+2564:  CLR     8E4
 ....................             errMotorX.sumErr = 0f; 
-255E:  CLR     8DA
-2560:  CLR     8DC
+2566:  CLR     8DA
+2568:  CLR     8DC
 ....................             errMotorX.pError = setPos.x - curPos.x; 
-2562:  BSET.B  43.0
-2564:  PUSH    42
-2566:  BCLR.B  81.7
-2568:  SETM.B  42
-256A:  BSET.B  81.7
-256C:  MOV     900,W0
-256E:  MOV     902,W1
-2570:  MOV     8F6,W2
-2572:  MOV     8F8,W3
-2574:  CALL    118E
-2578:  BCLR.B  81.7
-257A:  POP     42
-257C:  BSET.B  81.7
-257E:  MOV     W0,8DE
-2580:  MOV     W1,8E0
+256A:  BSET.B  43.0
+256C:  PUSH    42
+256E:  BCLR.B  81.7
+2570:  SETM.B  42
+2572:  BSET.B  81.7
+2574:  MOV     900,W0
+2576:  MOV     902,W1
+2578:  MOV     8F6,W2
+257A:  MOV     8F8,W3
+257C:  CALL    118E
+2580:  BCLR.B  81.7
+2582:  POP     42
+2584:  BSET.B  81.7
+2586:  MOV     W0,8DE
+2588:  MOV     W1,8E0
 ....................  
 ....................             // firstFeedBack.goHome = FALSE; 
 ....................             break; 
-2582:  BRA     269E
+258A:  BRA     268A
 ....................  
 ....................         case Y_POSITION: 
 ....................             // do something when get ROTATE command 
 ....................             feedBack.yPosition = TRUE; 
-2584:  BSET.B  8BA.2
+258C:  BSET.B  8BA.2
 ....................             firstFeedBack.yPosition = TRUE; 
-2586:  BSET.B  8BB.2
-....................             setPos.y = dataCom.data1 / 100.0f; 
-2588:  MOV     8BE,W0
-258A:  CLR     W3
-258C:  BTSC    W0.F
-258E:  SETM    W3
-2590:  MOV     W3,W1
-2592:  MOV     W3,W2
-2594:  CALL    1608
-2598:  MOV     #0,W4
-259A:  MOV     #0,W5
-259C:  MOV     #0,W6
-259E:  MOV     #4059,W7
-25A0:  CALL    1E60
-25A4:  CALL    114A
-25A8:  MOV     W1,904
-25AA:  MOV     W2,906
-....................             setPos.y = (setPos.y > MAX_WORK_SPACE_Y) ? MAX_WORK_SPACE_Y : (setPos.y < MIN_WORK_SPACE_Y) ? MIN_WORK_SPACE_Y : setPos.y; 
-25AC:  MOV     #0,W0
-25AE:  MOV     #4396,W1
-25B0:  MOV     904,W2
-25B2:  MOV     906,W3
-25B4:  CALL    19C0
-25B8:  BRA     NC,25C0
-25BA:  MOV     #0,W0
-25BC:  MOV     #4396,W1
-25BE:  BRA     25D8
-25C0:  MOV     904,W0
-25C2:  MOV     906,W1
-25C4:  MOV     #0,W2
-25C6:  MOV     #41A0,W3
-25C8:  CALL    19C0
-25CC:  BRA     NC,25D4
-25CE:  MOV     #0,W0
-25D0:  MOV     #41A0,W1
-25D2:  BRA     25D8
-25D4:  MOV     904,W0
-25D6:  MOV     906,W1
-25D8:  MOV     W0,904
-25DA:  MOV     W1,906
+258E:  BSET.B  8BB.2
 ....................  
-....................             if (setPos.y == curPos.y) 
-25DC:  MOV     904,W0
-25DE:  MOV     906,W1
-25E0:  MOV     8FA,W2
-25E2:  MOV     8FC,W3
-25E4:  CALL    19C0
-25E8:  BRA     NZ,25F6
-....................             { 
+....................             if (setPos.y == buff) 
+2590:  MOV     904,W0
+2592:  MOV     906,W1
+2594:  MOV     910,W2
+2596:  MOV     912,W3
+2598:  CALL    19C0
+259C:  BRA     NZ,25AA
 ....................                 sentData(TASK_COMPLETE, Y_POSITION); 
-25EA:  MOV.B   #65,W0L
-25EC:  MOV.B   W0L,912
-25EE:  MOV     #2,W4
-25F0:  MOV     W4,914
-25F2:  CALL    1BEC
-....................             } 
+259E:  MOV.B   #65,W0L
+25A0:  MOV.B   W0L,914
+25A2:  MOV     #2,W4
+25A4:  MOV     W4,916
+25A6:  CALL    1BEC
+....................  
+....................             setPos.y = buff; 
+25AA:  PUSH    910
+25AC:  POP     904
+25AE:  PUSH    912
+25B0:  POP     906
+....................             setPos.y = (setPos.y > MAX_WORK_SPACE_Y) ? MAX_WORK_SPACE_Y : (setPos.y < MIN_WORK_SPACE_Y) ? MIN_WORK_SPACE_Y : setPos.y; 
+25B2:  MOV     #0,W0
+25B4:  MOV     #4396,W1
+25B6:  MOV     904,W2
+25B8:  MOV     906,W3
+25BA:  CALL    19C0
+25BE:  BRA     NC,25C6
+25C0:  MOV     #0,W0
+25C2:  MOV     #4396,W1
+25C4:  BRA     25DE
+25C6:  MOV     904,W0
+25C8:  MOV     906,W1
+25CA:  MOV     #0,W2
+25CC:  MOV     #41A0,W3
+25CE:  CALL    19C0
+25D2:  BRA     NC,25DA
+25D4:  MOV     #0,W0
+25D6:  MOV     #41A0,W1
+25D8:  BRA     25DE
+25DA:  MOV     904,W0
+25DC:  MOV     906,W1
+25DE:  MOV     W0,904
+25E0:  MOV     W1,906
+....................  
+....................              
 ....................             // reset PID 
 ....................             errMotorY.err = 0f; 
-25F6:  CLR     8E6
-25F8:  CLR     8E8
+25E2:  CLR     8E6
+25E4:  CLR     8E8
 ....................             errMotorY.outPID = 0f; 
-25FA:  CLR     8F2
-25FC:  CLR     8F4
+25E6:  CLR     8F2
+25E8:  CLR     8F4
 ....................             errMotorY.sumErr = 0; 
-25FE:  CLR     8EA
-2600:  CLR     8EC
+25EA:  CLR     8EA
+25EC:  CLR     8EC
 ....................             errMotorY.pError = setPos.y - curPos.y; 
-2602:  BSET.B  43.0
-2604:  PUSH    42
-2606:  BCLR.B  81.7
-2608:  SETM.B  42
-260A:  BSET.B  81.7
-260C:  MOV     904,W0
-260E:  MOV     906,W1
-2610:  MOV     8FA,W2
-2612:  MOV     8FC,W3
-2614:  CALL    118E
-2618:  BCLR.B  81.7
-261A:  POP     42
-261C:  BSET.B  81.7
-261E:  MOV     W0,8EE
-2620:  MOV     W1,8F0
+25EE:  BSET.B  43.0
+25F0:  PUSH    42
+25F2:  BCLR.B  81.7
+25F4:  SETM.B  42
+25F6:  BSET.B  81.7
+25F8:  MOV     904,W0
+25FA:  MOV     906,W1
+25FC:  MOV     8FA,W2
+25FE:  MOV     8FC,W3
+2600:  CALL    118E
+2604:  BCLR.B  81.7
+2606:  POP     42
+2608:  BSET.B  81.7
+260A:  MOV     W0,8EE
+260C:  MOV     W1,8F0
 ....................  
 ....................             // firstFeedBack.goHome = FALSE; 
 ....................             break; 
-2622:  BRA     269E
+260E:  BRA     268A
 ....................  
 ....................         case Z_POSITION: 
 ....................             // do something when get KEEP command 
 ....................             feedBack.zPosition = TRUE; 
-2624:  BSET.B  8BA.3
+2610:  BSET.B  8BA.3
 ....................             firstFeedBack.zPosition = TRUE; 
-2626:  BSET.B  8BB.3
+2612:  BSET.B  8BB.3
 ....................             setPos.z = dataCom.data1; 
-2628:  PUSH    8BE
-262A:  POP     908
+2614:  PUSH    8BE
+2616:  POP     908
 ....................  
 ....................             if (setPos.z > 5) 
-262C:  MOV     908,W4
-262E:  CP      W4,#5
-2630:  BRA     LE,2638
+2618:  MOV     908,W4
+261A:  CP      W4,#5
+261C:  BRA     LE,2624
 ....................                 setPos.z = 5; 
-2632:  MOV     #5,W4
-2634:  MOV     W4,908
-2636:  BRA     2642
+261E:  MOV     #5,W4
+2620:  MOV     W4,908
+2622:  BRA     262E
 ....................             else if (setPos.z < 1) 
-2638:  MOV     908,W4
-263A:  CP      W4,#1
-263C:  BRA     GE,2642
+2624:  MOV     908,W4
+2626:  CP      W4,#1
+2628:  BRA     GE,262E
 ....................                 setPos.z = 1; 
-263E:  MOV     #1,W4
-2640:  MOV     W4,908
+262A:  MOV     #1,W4
+262C:  MOV     W4,908
 ....................  
 ....................             if (setPos.z > curPos.z) 
-2642:  MOV     8FE,W0
-2644:  MOV     908,W4
-2646:  CP      W4,W0
-2648:  BRA     LE,2650
+262E:  MOV     8FE,W0
+2630:  MOV     908,W4
+2632:  CP      W4,W0
+2634:  BRA     LE,263C
 ....................                 directZ = GO_FORWARD; 
-264A:  MOV     #1,W4
-264C:  MOV     W4,90A
-264E:  BRA     2652
+2636:  MOV     #1,W4
+2638:  MOV     W4,90A
+263A:  BRA     263E
 ....................             else 
 ....................                 directZ = GO_BACKWARD; 
-2650:  CLR     90A
+263C:  CLR     90A
 ....................  
 ....................             // firstFeedBack.goHome = FALSE; 
 ....................             break; 
-2652:  BRA     269E
+263E:  BRA     268A
 ....................  
 ....................         case ROTATE: 
 ....................             // do something when get Z_POSITION command 
 ....................             feedBack.rotation = TRUE; 
-2654:  BSET.B  8BA.4
+2640:  BSET.B  8BA.4
 ....................             firstFeedBack.rotation = TRUE; 
-2656:  BSET.B  8BB.4
+2642:  BSET.B  8BB.4
 ....................             gripperRotate.setAngle = angleToPulse(dataCom.data1); 
-2658:  PUSH    8BE
-265A:  POP     910
-265C:  CALL    1F68
-2660:  MOV     W0,8CE
+2644:  PUSH    8BE
+2646:  POP     914
+2648:  CALL    1F68
+264C:  MOV     W0,8CE
 ....................  
 ....................             sentData(TASK_COMPLETE, ROTATE); 
-2662:  MOV.B   #65,W0L
-2664:  MOV.B   W0L,912
-2666:  MOV     #4,W4
-2668:  MOV     W4,914
-266A:  CALL    1BEC
+264E:  MOV.B   #65,W0L
+2650:  MOV.B   W0L,914
+2652:  MOV     #4,W4
+2654:  MOV     W4,916
+2656:  CALL    1BEC
 ....................  
 ....................             // firstFeedBack.goHome = FALSE; 
 ....................             break; 
-266E:  BRA     269E
+265A:  BRA     268A
 ....................  
 ....................         case KEEP: 
 ....................             feedBack.keeping = TRUE; 
-2670:  BSET.B  8BA.5
+265C:  BSET.B  8BA.5
 ....................             firstFeedBack.keeping = TRUE; 
-2672:  BSET.B  8BB.5
+265E:  BSET.B  8BB.5
 ....................             if (dataCom.data1 == 1) 
-2674:  MOV     8BE,W4
-2676:  CP      W4,#1
-2678:  BRA     NZ,2680
+2660:  MOV     8BE,W4
+2662:  CP      W4,#1
+2664:  BRA     NZ,266C
 ....................                 gripperKeep.setAngle = DEFAULT_KEEP; 
-267A:  MOV     #85,W4
-267C:  MOV     W4,8D4
-267E:  BRA     2684
+2666:  MOV     #85,W4
+2668:  MOV     W4,8D4
+266A:  BRA     2670
 ....................             else 
 ....................                 gripperKeep.setAngle = GRIPPER_OPEN; 
-2680:  MOV     #64,W4
-2682:  MOV     W4,8D4
+266C:  MOV     #64,W4
+266E:  MOV     W4,8D4
 ....................  
 ....................             sentData(TASK_COMPLETE, KEEP); 
-2684:  MOV.B   #65,W0L
-2686:  MOV.B   W0L,912
-2688:  MOV     #5,W4
-268A:  MOV     W4,914
-268C:  CALL    1BEC
+2670:  MOV.B   #65,W0L
+2672:  MOV.B   W0L,914
+2674:  MOV     #5,W4
+2676:  MOV     W4,916
+2678:  CALL    1BEC
 ....................  
 ....................             // firstFeedBack.goHome = FALSE; 
 ....................             break; 
-2690:  BRA     269E
+267C:  BRA     268A
 ....................  
 ....................         default: 
 ....................             // do something when get ERROR_DECODE command 
 ....................             sentData(ERROR_DECODE, 0); 
-2692:  MOV.B   #64,W0L
-2694:  MOV.B   W0L,912
-2696:  CLR     914
-2698:  CALL    1BEC
+267E:  MOV.B   #64,W0L
+2680:  MOV.B   W0L,914
+2682:  CLR     916
+2684:  CALL    1BEC
 ....................             break; 
-269C:  BRA     269E
+2688:  BRA     268A
 ....................         } 
 ....................     } 
 .................... } 

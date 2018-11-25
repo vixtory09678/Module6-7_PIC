@@ -10,13 +10,29 @@ inline void servoControl()
     gripperRotate.error = gripperRotate.setAngle - gripperRotate.curAngle;
     gripperKeep.error = gripperKeep.setAngle - gripperKeep.curAngle;
 
-    gripperRotate.curAngle += (gripperRotate.error * 0.5);
-    gripperKeep.curAngle += (gripperKeep.error * 0.5);
+    gripperRotate.curAngle += (gripperRotate.error * 0.2);
+    gripperKeep.curAngle += (gripperKeep.error * 0.2);
 
-    gripperRotate.error = (abs(gripperRotate.error) > 2) ? gripperRotate.error : 0;
+    gripperRotate.error = (abs(gripperRotate.error) > 1) ? gripperRotate.error : 0;
+    if(gripperRotate.error == 0) {
+        if (feedBack.rotation && !firstFeedBack.rotation) {
+            feedBack.rotation = FALSE;
+            sentData(TASK_COMPLETE, ROTATE);
+        }
+    } else {
+        firstFeedBack.rotation = FALSE;
+    }
     servoRotate(gripperRotate.curAngle);
 
-    gripperKeep.error = (abs(gripperKeep.error) > 2) ? gripperKeep.error : 0;
+    gripperKeep.error = (abs(gripperKeep.error) > 1) ? gripperKeep.error : 0;
+    if(gripperKeep.error == 0) {
+        if (feedBack.keeping && !firstFeedBack.keeping) {
+            feedBack.keeping = FALSE;
+            sentData(TASK_COMPLETE, KEEP);
+        }
+    } else {
+        firstFeedBack.keeping = FALSE;
+    }
     servoKeep(gripperKeep.curAngle);
 }
 
